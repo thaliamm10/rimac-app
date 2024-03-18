@@ -1,0 +1,52 @@
+.header {
+  display: flex;
+  padding: 2px 120px 2px 120px;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: 792px) { // Ajuste para dispositivos mobil
+    padding: 12px 24px 12px 24px;
+  }
+
+    &__logo-img {
+    width: 73.19px;
+    height: 36px;
+
+    @media (max-width: 792px) { // Ajuste para dispositivos mobil
+      width: 65.05px;
+      height: 32px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__message {
+    display: none;
+    @media (min-width: 793px) { // Ajuste para dispositivos de escritorio
+      display: block;
+      font-family: 'BR Sonoma';
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 16px;
+      letter-spacing: 0.20000000298023224px;
+      text-align: right;
+    }
+  }
+
+  &__contact {
+    font-family: BR Sonoma;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0.4000000059604645px;
+    text-align: right;
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+  }
+}

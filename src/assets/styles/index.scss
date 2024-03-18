@@ -1,0 +1,17 @@
+/**
+Styles
+ */
+@import '@fortawesome/fontawesome-free/css/all.css';
+
+/**
+Styles local
+ */
+@import "App";
+@import "layout/Footer";
+@import "layout/Header";
+@import "pages/plans/Plans";
+
+body{
+  margin: 0px;
+}
+
