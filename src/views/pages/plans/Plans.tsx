@@ -1,52 +1,114 @@
+import {useQuery, useQueryClient} from '@tanstack/react-query';
+import Step from "../../../common/components/step/Step.tsx";
+import {startTransition, useState} from "react";
+import Option from "./childs/option/Option.tsx";
 // @ts-ignore
-import imgLogo from "../../../assets/media/baners/img.png";
+import {
+    DetailUserService, ListPlansService
+} from '../../../services'
+import {useNavigate} from "react-router-dom";
+import Summary from "./childs/summary/Summary.tsx";
+// @ts-ignore
 
-function Plans() {
+const Plans = () => {
+    // Acceder a los datos cacheados
+    const queryClient = useQueryClient();
+    // Obtener los datos cacheados
+    const dataRequest: any = queryClient.getQueryData(['dataRequest']);
+    const [data, setData] = useState({})
+    const [steps, setSteps] = useState([
+        {step: 1, label: 'Planes y coberturas         ....', isActive: true, isCompleted: false},
+        {step: 2, label: 'Resumen', isActive: false, isCompleted: false},
+    ]);
+    const [option, setOption] = useState(0)
+    const navigate = useNavigate();
+
+    const {data: dataPlans = [], isLoading} = useQuery({
+        queryKey: ['dataPlans'],
+        queryFn: ListPlansService.listPlans,
+        retry: 0,
+        refetchOnWindowFocus: false,
+    });
+
+    const {data: dataUser = [], isLoading: loading} = useQuery({
+        queryKey: ['dataUser'],
+        queryFn: DetailUserService.detailUser,
+        retry: 0,
+        refetchOnWindowFocus: false,
+    });
+
+    // console.log(dataPlans);
+
+    const handleStepClick = (index: number) => {
+
+        const updatedSteps = dataPlans.map((step: any, i: number) => ({
+            ...step,
+            isActive: i === index,
+            isCompleted: i < index,
+        }));
+
+        setSteps(updatedSteps);
+        setOption(index);
+    };
+    const selectPrice = (val: any) => {
+
+        setOption(1)
+        console.log(dataRequest)
+
+        // @ts-ignore
+        setData({
+            namePlan: val.name,
+            price: val.price,
+            name: `${dataUser.name} ${dataUser.lastName}`,
+            dni: dataRequest?.documento,
+            celular: dataRequest?.telefono
+        })
+    }
+
+    const volver = () => {
+        startTransition(() => {
+            navigate('/');
+        })
+    }
+
     return (
         <>
-            <div className='page-plans'>
-                <div className='page-plans__background'>
-                    <div className='page-plans__background--image-left'></div>
-                    <div className='page-plans__background--image-right'></div>
+           {/* /!* Documento: *!/*/}
+           {/*{dataRequest && (*/}
+           {/*     <p>Los datos cacheados son: {JSON.stringify(dataRequest)}</p>*/}
+           {/* )}*/}
+
+            <div className="plans">
+
+                <div className='plans__step-container'>
+                    {steps.map((step: { step: number; label: string; isActive: boolean; isCompleted: boolean; }, index: number) => (
+                        <Step
+                            key={index}
+                            step={step.step}
+                            label={step.label}
+                            isActive={step.isActive}
+                            isCompleted={step.isCompleted}
+                            onClick={() => handleStepClick(index)}
+                        />
+
+                    ))}
                 </div>
-                <div className='page-plans__content'>
-                    <div className='page-plans__content--section-left'>
-                        <img src={imgLogo} className='page-plans__content--section-left--img' alt="Logo"/>
-                    </div>
-                    <div className='page-plans__content--section-right'>
-                        <div className='page-plans__content--section-right__frame1'>
-                            <span className='page-plans__content--section-right__frame1--tag'>
-                                <label className='page-plans__content--section-right__frame1--tag--label'>
-                                    Seguro Salud Flexible
-                                </label>
-                                </span>
-                            <p className='page-plans__content--section-right__frame1--text1'>Creado para ti y tu
-                                familia</p>
-                            <p className='page-plans__content--section-right__frame1--text2'>Tú eliges cuánto pagar.
-                                Ingresa tus datos, cotiza y recibe nuestra
-                                asesoría. 100% online.</p>
 
-                        </div>
-                        <div className='page-plans__content--section-right__frame2'>
+                <button className='plans__button' onClick={() => volver()}>
+                    <i className="fa-solid fa-circle-chevron-left plans__button__icon"></i>
+                    {/*<i className='plans__button__icon'></i>*/}
+                    <label>Volver</label>
+                </button>
 
-                        </div>
-                        <div className='page-plans__content--section-right__frame3'>
 
-                        </div>
-
-                        <button type="button"
-                                disabled={true}
-                                className=''
-
-                        >Un momento por favor...
-                        </button>
-                    </div>
-
-                </div>
+                {(option === 0) ? (<>
+                    <Option priceSelect={selectPrice}/>
+                </>) : (option === 1) ? (<>
+                    <Summary datos={data}/>
+                </>) : (<></>)}
             </div>
-
         </>
     );
-}
+};
 
 export default Plans;

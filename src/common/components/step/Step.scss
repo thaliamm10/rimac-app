@@ -1,0 +1,131 @@
+
+.step {
+
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+
+  &__circle {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    background-image: url('../../../assets/media/images/Ellipse.png');
+    justify-content: center;
+
+    span{
+      font-family: Lato;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 16px;
+      letter-spacing: 0.4000000059604645px;
+      text-align: center;
+      align-content: center;
+      color: #FFFFFF;
+    }
+
+    &:active {
+      //border-color: #4F4FFF; /* Color del círculo activo */
+      //border-color: #4F4FFF;
+      //background: #4F4FFF;
+      color: #9a1111;
+    }
+
+  }
+  &__label{
+
+
+
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: left;
+
+
+  }
+
+
+}
+
+
+//@media (min-width: 768px) {
+//
+//    .step {
+//        display: flex;
+//        /* width: 100%; */
+//        padding: 10px 200px;
+//        justify-content: space-between;
+//        align-items: center;
+//        color: #7981B2;
+//        border-color: #7981B2;
+//    }
+//    .step-container {
+//        display: flex;
+//        justify-content: center;
+//        background: #EDEFFC;
+//        /*width: 100%;*/
+//    }
+//    .active .step-circle {
+//        border-color: #4F4FFF; /* Color del círculo activo */
+//        border-color: #4F4FFF;
+//        background: #4F4FFF;
+//        color: white;
+//    }
+//
+//
+//
+//}
+//
+//@media (max-width: 767px) {
+//
+//    .step {
+//        display: flex;
+//        /* width: 100%; */
+//        padding: 10px 200px;
+//        justify-content: space-between;
+//        align-items: center;
+//        color: #7981B2;
+//        border-color: #7981B2;
+//    }
+//    .step-container {
+//        display: flex;
+//        justify-content: center;
+//        background: #EDEFFC;
+//        width: 100%;
+//    }
+//    .active .step-circle {
+//        border-color: #4F4FFF; /* Color del círculo activo */
+//        border-color: #4F4FFF;
+//        background: #4F4FFF;
+//        color: white;
+//    }
+//
+//
+//}
+//
+//
+//
+//.step-circle {
+//    width: 30px;
+//    height: 30px;
+//    border: 2px solid #ccc;
+//    margin-right: 2px;
+//    border-radius: 50%;
+//    display: flex;
+//    align-items: center;
+//    justify-content: center;
+//    font-weight: bold;
+//    background-color: #fff;
+//}
+//
+//.step-label {
+//    margin-top: 5px;
+//    display: inline-block;
+//
+//}
+//
+//
+//.completed .step-circle {
+//    font-feature-settings: 'clig' off, 'liga' off;
+//}

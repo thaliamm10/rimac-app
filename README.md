@@ -85,3 +85,13 @@ Este proyecto está configurado para trabajar con React utilizando TypeScript co
 - **Comandos principales**:
   ```bash
   yarn add  @fortawesome/fontawesome-free
+
+### react-query
+- **Utilidad**: 
+- **Ventajas**:
+
+- **Versión**: `3.39.3`
+- **Comandos principales**:
+  ```bash
+  yarn add react-query
+### formik

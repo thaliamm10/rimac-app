@@ -9,9 +9,15 @@ Styles local
 @import "App";
 @import "layout/Footer";
 @import "layout/Header";
+@import "pages/quote-request/QuoteRequest";
 @import "pages/plans/Plans";
+@import "pages/plans/Plan";
+@import "pages/plans/Option";
+@import "pages/plans/Summary";
 
 body{
   margin: 0px;
+
+  font-family: 'BR Sonoma';
 }
 

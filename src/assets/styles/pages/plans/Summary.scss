@@ -1,0 +1,41 @@
+.summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__content {
+    width: 1360px;
+    height: 752px;
+    // Para centrar el contenido horizontalmente
+    margin: 0 auto;
+    gap: 0px;
+    border-radius: 42px 0px 0px 0px;
+    // Para hacer el contenido visible
+    display: block;
+
+    &__title {
+      //styleName: Web/Title_03/D_Bold_40px;
+      font-family: 'Lato';
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 48px;
+      letter-spacing: -0.6000000238418579px;
+      text-align: left;
+      width: 346px;
+      height: 48px;
+      gap: 0px;
+      margin: 0 auto; // Para centrar el título horizontalmente
+    }
+
+    &__card {
+      width: 928px;
+      //height: Hug (308px)px;
+      padding: 24px 32px 24px 32px;
+      gap: 16px;
+      border-radius: 24px 0px 0px 0px;
+      box-shadow: 0px 1px 24px 0px #AEACF340;
+      background: #FFFFFF;
+      margin: 0 auto; // Para centrar la tarjeta horizontalmente
+    }
+  }
+}

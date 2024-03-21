@@ -1,143 +1,64 @@
-$position: fixed;
-$desktopWidth: 432px;
-$desktopHeight: 1088px;
-$font-family: BR Sonoma;
+.plans {
+  display: block;
+  &__step-container {
+    width: 1360px;
+    //height: 56px;
+    top: 64px;
+    padding: 16px 0px 16px 0px;
+    gap: 0px;
 
-.page-plans {
-  &__background {
-    //width: 100%;
-    //height: 100vh;
-    //
-    @media (min-width: 792px) {
-      // Ajuste para dispositivos de escritorio
-      display: flex;
-      justify-content: space-between;
-    }
+    background: #EDEFFC;
+    display: flex;
+    justify-content: center;
 
-    &--image-left {
-      background-image: url('../../assets/media/images/blur-asset-purple.png');
-      background-size: cover;
-      background-position: left;
-      position: $position;
-      width: $desktopWidth;
-      height: $desktopHeight;
-      bottom: 0;
-      left: 0;
-
-      @media (max-width: 792px) {
-        // Ajuste para dispositivos móviles
-        background-image: url('../../assets/media/images/blur-asset2.png');
-        angle: -180 deg;
-        width: 256px;
-        height: 640px;
-      }
-    }
-
-    &--image-right {
-      background-image: url('../../assets/media/images/blur-asset.png');
-      background-size: cover;
-      background-position: right top;
-      position: $position;
-      width: $desktopWidth;
-      height: $desktopHeight;
-      angle: 180deg;
-      right: 0;
-      top: 0;
-
-
-      @media (max-width: 792px) {
-        // Ajuste para dispositivos móviles
-        background-image: url('../../assets/media/images/blur-asset 1.png');
-        width: 352px;
-        height: 304px;
-        angle: -180 deg;
-      }
-
-    }
   }
 
-  &__content {
-    display: flex;
-    justify-content: space-between;
+  &__button {
+    //display: flex;
+    //width: 82px;
+    //height: 20px;
+    top: 160px;
+    left: 216px;
+    //gap: 8px;
 
-    &--section-left {
-      //width: 600px;
-      //height: Hug(640px);
-      padding: 32px 0px 48px 120px;
-      gap: 10px;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
 
-      &--img {
-        width: 480px;
-        height: 560px;
-      }
+
+    &__icon {
+      width: 20px;
+      height: 20px;
+      //gap: 0px;
+      //angle: -90 deg;
+
+      background-image: url('../../../../assets/media/images/Icon-button.png');;
+      background-size: cover; /* Ajusta el tamaño de la imagen */
+      background-repeat: no-repeat; /* Evita que se repita la imagen */
+    }
+
+    label {
+      //styleName: Web/Text_Button/Text_button3;
+      font-family: Lato;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 20px;
+      letter-spacing: 0.4000000059604645px;
+      text-align: center;
+
+      width: 54px;
+      height: 20px;
+      gap: 0px;
+      color: #4F4FFF;
+
 
     }
 
-    &--section-right {
-      padding: 32px 216px 80px 128px;
-      gap: 24px;
-
-      &__frame1 {
-        gap: 16px;
-
-        &--tag {
-          padding: 4px 8px 4px 8px;
-          gap: 4px;
-          border-radius: 4px;
-          background: linear-gradient(86.01deg, #00F4E2 0%, #00FF7F 100%);
-
-          &--label {
-            width: 156px;
-            height: 16px;
-
-            //styleName: Component text/comp-14-bold;
-            font-family: $font-family;
-            font-size: 14px;
-            font-weight: 700;
-            line-height: 16px;
-            letter-spacing: 0.4000000059604645px;
-            text-align: left;
-
-          }
-        }
-
-        &--text1 {
-          width: 352px;
-          height: 80px;
-          font-family: $font-family;
-          font-size: 32px;
-          font-weight: 700;
-          line-height: 40px;
-          letter-spacing: 0em;
-          text-align: left;
-        }
-
-        &--text2 {
-          width: 352px;
-          height: 40px;
-          font-family: $font-family;
-          font-size: 14px;
-          font-weight: 600;
-          line-height: 20px;
-          letter-spacing: 0.20000000298023224px;
-          text-align: left;
-
-        }
-
-
-      }
-
-      &__frame2 {
-        gap: 16px;
-
-      }
-
-      &__frame3 {
-        gap: 16px;
-
-      }
-
-    }
 
   }
 }

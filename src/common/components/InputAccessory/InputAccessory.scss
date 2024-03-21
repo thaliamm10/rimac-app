@@ -1,0 +1,60 @@
+.input-accessory {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &__border-left{
+    border-left: 0px !important; ;
+    border-radius: 0px 8px 8px 0px !important;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc; // Solamente necesitas declarar la propiedad border una vez
+    padding: 16px;
+    font-size: 16px;
+    color: black; // Cambié el color a negro
+
+
+
+    &:focus, &:valid {
+      font-size: 16px;
+      color: #0f1011;
+      padding: 24px 16px 8px 16px;
+    }
+
+    &::placeholder {
+      opacity: 1; // Restauramos la opacidad a 1 para el placeholder
+    }
+
+
+    &:placeholder-shown + .input-accessory__placeholder {
+      opacity: 1; // Restauré la opacidad a 1 cuando el placeholder se muestra
+    }
+  }
+
+  &__placeholder  {
+    position: absolute;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    opacity: 1; // Restauré la opacidad a 1
+
+    padding: 16px;
+    color: #5E6488;
+    font-family: "BR Sonoma"; // Añadí comillas al nombre de la fuente
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+  }
+}
+.input-accessory:focus-within .input-accessory__placeholder,
+.input-accessory input[type="text"]:valid + .input-accessory__placeholder,
+.input-accessory input[type="text"]:focus + .input-accessory__placeholder {
+  font-size: 12px;
+  color: #999;
+  top: -8px;
+}
+

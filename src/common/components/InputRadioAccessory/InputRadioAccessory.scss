@@ -1,0 +1,52 @@
+.input-radio-accessory {
+  label{
+    display: flex;
+    align-items: center;
+    //font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.10000000149011612px;
+    margin-top: 10px;
+
+    input[type="radio"] {
+      display: none; // Ocultar el checkbox por defecto
+
+      + .check-icon {
+        position: relative;
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border: 1px solid #ccc;
+        border-radius: 50%; /* Cambiado a 50% para hacer un círculo */
+        margin-right: 5px;
+
+
+        &::before {
+          content: '\2713'; // Símbolo de verificación (✓)
+          //font-size: 16px;
+          line-height: 1;
+          color: transparent; // Inicialmente ocultar el icono
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+
+
+        }
+      }
+
+      &:checked {
+        + .check-icon::before {
+          color: #FFFFFF;
+
+        }
+
+        + .check-icon {
+          background: #389E0D;
+
+        }
+      }
+    }
+  }
+
+}
