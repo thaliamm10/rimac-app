@@ -1,3 +1,4 @@
+@import '../../_variables';
 .summary {
   display: flex;
   justify-content: center;
@@ -15,7 +16,8 @@
 
     &__title {
       //styleName: Web/Title_03/D_Bold_40px;
-      font-family: 'Lato';
+      font-family: $secondary-font
+    ;
       font-size: 40px;
       font-weight: 700;
       line-height: 48px;

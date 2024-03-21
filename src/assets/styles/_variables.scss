@@ -1,0 +1,38 @@
+// Define font families
+$primary-font: 'Roboto Slab', serif;
+$secondary-font: 'Lato', sans-serif;
+
+// Define base font size
+$base-font-size: 12px;
+
+// Define font sizes based on base font size
+$font-size-1: $base-font-size;
+$font-size-2: $base-font-size + 2px;
+$font-size-3: $base-font-size + 4px;
+$font-size-4: $base-font-size + 6px;
+$font-size-5: $base-font-size + 8px;
+$font-size-6: $base-font-size + 10px;
+$font-size-7: $base-font-size + 12px;
+$font-size-8: $base-font-size + 14px;
+$font-size-9: $base-font-size + 16px;
+$font-size-10: $base-font-size + 18px;
+$font-size-11: $base-font-size + 20px;
+$font-size-12: $base-font-size + 22px;
+$font-size-13: $base-font-size + 24px;
+$font-size-14: $base-font-size + 26px;
+$font-size-15: $base-font-size + 28px;
+
+
+$base-font-weight: 600;
+$font-weight-1: $base-font-weight;
+$font-weight-2: $base-font-weight + 100;
+
+$base-line-height: 20px;
+$line-height: $base-line-height;
+
+$letter-spacing-1: 0.20000000298023224px;
+$letter-spacing-2: 0.4000000059604645px;
+
+$text-align-right: right;
+
+

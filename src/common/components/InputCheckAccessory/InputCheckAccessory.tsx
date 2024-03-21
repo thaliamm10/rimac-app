@@ -7,7 +7,7 @@ interface InputCheckAccessoryProps {
     name: string;
     onChange: any;
     onBlur: any;
-    value: boolean;
+    value: any;
     className: any;
     label: string
 }
@@ -21,6 +21,7 @@ const InputCheckAccessory: FC<InputCheckAccessoryProps> = ({
 
                                                                label
                                                            }) => {
+
 
     return (
         <div className='input-check-accessory'>

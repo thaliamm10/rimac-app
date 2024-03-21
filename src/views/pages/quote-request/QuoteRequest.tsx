@@ -110,7 +110,8 @@ function QuoteRequest() {
                 </div>
                 <div className='page-plans__content'>
                     <div className='page-plans__content--section-left'>
-                        <img className='page-plans__content--section-left--img' src={imgLogo}/>
+                        <img className='page-plans__content--section-left--img'
+                             src={imgLogo}/>
                     </div>
                     <div className='page-plans__content--section-right'>
                         <div className='page-plans__content--section-right__frame1'>
@@ -119,8 +120,15 @@ function QuoteRequest() {
                                     Seguro Salud Flexible
                                 </label>
                                 </span>
-                            <p className='page-plans__content--section-right__frame1--text1'>Creado para ti y tu
-                                familia</p>
+                            <div className='page-plans__content--section-right__frame1__cardh'>
+                                <p className='page-plans__content--section-right__frame1__cardh--text1'>Creado para ti y tu
+                                    familia</p>
+                                <img className='page-plans__content--section-right__frame1__cardh--img'
+                                     src={imgLogo}/>
+                            </div>
+                            <hr className='linea'/>
+
+
                             <p className='page-plans__content--section-right__frame1--text2'>Tú eliges cuánto pagar.
                                 Ingresa tus datos, cotiza y recibe nuestra
                                 asesoría. 100% online.</p>
@@ -140,8 +148,8 @@ function QuoteRequest() {
                                         className={getValidationClass(formik.touched.documento, formik.errors.documento)}
                                     />
                                     {formik.errors.documento && formik.touched.documento && (
-                                        <div className="invalid-feedback">
-                                            {formik.errors.documento}</div>
+                                        <span className="invalid-feedback">
+                                            {formik.errors.documento}</span>
                                     )}
                                     {/* Telefono */}
                                     <InputAccessory
@@ -155,8 +163,8 @@ function QuoteRequest() {
                                     />
 
                                     {formik.errors.telefono && formik.touched.telefono && (
-                                        <div className="invalid-feedback">
-                                            {formik.errors.telefono}</div>
+                                        <span className="invalid-feedback">
+                                            {formik.errors.telefono}</span>
                                     )}
 
                                 </div>
@@ -172,8 +180,8 @@ function QuoteRequest() {
                                     />
 
                                     {formik.errors.terminos1 && formik.touched.terminos1 && (
-                                        <div className="invalid-feedback">
-                                            {formik.errors.terminos1}</div>
+                                        <span className="invalid-feedback">
+                                            {formik.errors.terminos1}</span>
                                     )}
                                     {/* Terminos comerciales */}
                                     <InputCheckAccessory
@@ -186,12 +194,12 @@ function QuoteRequest() {
                                     />
 
                                     {formik.errors.terminos2 && formik.touched.terminos2 && (
-                                        <div className="invalid-feedback">
-                                            {formik.errors.terminos2}</div>
+                                        <span className="invalid-feedback">
+                                            {formik.errors.terminos2}</span>
                                     )}
 
                                     <br/>
-                                    <span className={'lsection2__span'}>Aplican Términos y Condiciones.</span>
+                                    <span className='page-plans__content--section-right__frame3--terminos'>Aplican Términos y Condiciones.</span>
 
                                 </div>
 
@@ -200,7 +208,7 @@ function QuoteRequest() {
                                 <button
                                     type="submit"
                                     className='page-plans__content--section-right--button'
-                                    onClick={handleSubmit}
+                                    // onClick={handleSubmit}
                                 >
                                     Cotiza aquí
                                 </button>

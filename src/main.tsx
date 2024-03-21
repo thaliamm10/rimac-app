@@ -13,3 +13,4 @@ if (rootElement instanceof HTMLElement) {
 } else {
     console.error("No se pudo encontrar el elemento con el id 'root'");
 }
+

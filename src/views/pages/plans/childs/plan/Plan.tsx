@@ -22,7 +22,7 @@ const Plan: FC<PersonalProps> = ({edad = 0, opcion, selectedPlan}) => {
 
     const [plan, setPlan] = useState([])
 
-    const {data: dataPlans = [], isLoading} = useQuery({
+    const {data: dataPlans = []} = useQuery({
         queryKey: ['dataPlans'],
         queryFn: ListPlansService.listPlans,
         retry: 0,

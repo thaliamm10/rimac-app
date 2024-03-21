@@ -1,3 +1,5 @@
+@import '../_variables';
+
 .header {
   display: flex;
   padding: 2px 120px 2px 120px;
@@ -7,7 +9,7 @@
     padding: 12px 24px 12px 24px;
   }
 
-    &__logo-img {
+  &__logo-img {
     width: 73.19px;
     height: 36px;
 
@@ -25,28 +27,34 @@
 
   &__message {
     display: none;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: right;
+
     @media (min-width: 793px) { // Ajuste para dispositivos de escritorio
       display: block;
-      font-family: 'BR Sonoma';
-      font-size: 12px;
-      font-weight: 600;
-      line-height: 16px;
-      letter-spacing: 0.20000000298023224px;
-      text-align: right;
+      font-size: $font-size-1;
+
+
     }
   }
 
   &__contact {
-    font-family: BR Sonoma;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 20px;
-    letter-spacing: 0.4000000059604645px;
-    text-align: right;
+    text-align: $text-align-right;
+    font-weight: $font-weight-2;
+    line-height: $line-height;
+    letter-spacing: $letter-spacing-2;
+    gap: 0px;
+
+
   }
 
   &__icon {
     width: 20px;
     height: 20px;
+    gap: 0px;
+
   }
 }

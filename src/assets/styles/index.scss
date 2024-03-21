@@ -1,8 +1,10 @@
 /**
 Styles
  */
+@import './_variables';
 @import '@fortawesome/fontawesome-free/css/all.css';
-
+@import 'https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Lato&display=swap';
 /**
 Styles local
  */
@@ -15,9 +17,30 @@ Styles local
 @import "pages/plans/Option";
 @import "pages/plans/Summary";
 
-body{
-  margin: 0px;
 
-  font-family: 'BR Sonoma';
+body {
+  margin: 0px;
+  font-family: $primary-font;
+  //width: 1360px;
+  height: 704px;
+
+
+  font-size: $font-size-4;
+
+  .invalid-feedback{
+    color: red;
+    font-size: $font-size-1;
+    //margin: 0;
+}
+  .linea{
+    border: 1px solid #CCD1EE;
+    width: 331.5px;
+    height: 0px;
+    gap: 0px;
+
+
+  }
+
+
 }
 

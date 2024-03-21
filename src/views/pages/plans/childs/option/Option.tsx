@@ -19,7 +19,7 @@ import Plan from "../plan/Plan.tsx";
 
 const
     Option: FC<PersonalProps> = ({priceSelect}) => {
-        const {data: dataUser, isLoading: loading} = useQuery({
+        const {data: dataUser} = useQuery({
             queryKey: ['dataUser'],
             queryFn: DetailUserService.detailUser,
             retry: 0,
@@ -52,7 +52,7 @@ const
             initialValues: initialValues,
             validationSchema: validationSchema,
             onSubmit: values => {
-
+                console.log(values)
             },
         });
 
@@ -85,7 +85,7 @@ const
                                             value={'1'}
                                             checked={formik.values.opcionC === '1'}
                                             className=''
-                                            onChange={(e) => {
+                                            onChange={() => {
                                                 formik.setFieldValue('opcionC', '1');
                                             }}
                                         />
@@ -115,7 +115,7 @@ const
                                             value={'2'}
                                             checked={formik.values.opcionC === '2'}
                                             className=''
-                                            onChange={(e) => {
+                                            onChange={() => {
                                                 formik.setFieldValue('opcionC', '2');
                                             }}
                                         />

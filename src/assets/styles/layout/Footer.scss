@@ -1,4 +1,4 @@
-// footer.scss
+@import '../_variables';
 .footer {
   background: #03050F;
   min-height: 106px;
@@ -50,8 +50,7 @@
 
   &__text {
     color: #F8F9FF;
-    font-family: BR Sonoma;
-    font-size: 14px;
+    font-size: $font-size-2;
     font-style: normal;
     font-weight: 400;
     text-align: center;

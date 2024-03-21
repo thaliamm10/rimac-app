@@ -23,14 +23,14 @@ const Plans = () => {
     const [option, setOption] = useState(0)
     const navigate = useNavigate();
 
-    const {data: dataPlans = [], isLoading} = useQuery({
+    const {data: dataPlans = []} = useQuery({
         queryKey: ['dataPlans'],
         queryFn: ListPlansService.listPlans,
         retry: 0,
         refetchOnWindowFocus: false,
     });
 
-    const {data: dataUser = [], isLoading: loading} = useQuery({
+    const {data: dataUser = []} = useQuery({
         queryKey: ['dataUser'],
         queryFn: DetailUserService.detailUser,
         retry: 0,
