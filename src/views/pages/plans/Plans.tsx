@@ -4,10 +4,14 @@ import {startTransition, useState} from "react";
 import Option from "./childs/option/Option.tsx";
 // @ts-ignore
 import {
-    DetailUserService, ListPlansService
+    DetailUserService
 } from '../../../services'
 import {useNavigate} from "react-router-dom";
 import Summary from "./childs/summary/Summary.tsx";
+
+// @ts-ignore
+import imgAtras from '../../../assets/media/images/Icon-button.png'
+import ProgressBar from "../../../common/components/progress/ProgressBar.tsx";
 // @ts-ignore
 
 const Plans = () => {
@@ -17,18 +21,13 @@ const Plans = () => {
     const dataRequest: any = queryClient.getQueryData(['dataRequest']);
     const [data, setData] = useState({})
     const [steps, setSteps] = useState([
-        {step: 1, label: 'Planes y coberturas         ....', isActive: true, isCompleted: false},
+        {step: 1, label: 'Planes y coberturas', isActive: true, isCompleted: false},
         {step: 2, label: 'Resumen', isActive: false, isCompleted: false},
     ]);
     const [option, setOption] = useState(0)
     const navigate = useNavigate();
 
-    const {data: dataPlans = []} = useQuery({
-        queryKey: ['dataPlans'],
-        queryFn: ListPlansService.listPlans,
-        retry: 0,
-        refetchOnWindowFocus: false,
-    });
+    const [step, setStep] = useState(1)
 
     const {data: dataUser = []} = useQuery({
         queryKey: ['dataUser'],
@@ -37,11 +36,8 @@ const Plans = () => {
         refetchOnWindowFocus: false,
     });
 
-    // console.log(dataPlans);
-
     const handleStepClick = (index: number) => {
-
-        const updatedSteps = dataPlans.map((step: any, i: number) => ({
+        const updatedSteps = steps.map((step: any, i: number) => ({
             ...step,
             isActive: i === index,
             isCompleted: i < index,
@@ -51,7 +47,7 @@ const Plans = () => {
         setOption(index);
     };
     const selectPrice = (val: any) => {
-
+        setStep(2)
         setOption(1)
         console.log(dataRequest)
 
@@ -73,10 +69,10 @@ const Plans = () => {
 
     return (
         <>
-           {/* /!* Documento: *!/*/}
-           {/*{dataRequest && (*/}
-           {/*     <p>Los datos cacheados son: {JSON.stringify(dataRequest)}</p>*/}
-           {/* )}*/}
+            {/* /!* Documento: *!/*/}
+            {/*{dataRequest && (*/}
+            {/*     <p>Los datos cacheados son: {JSON.stringify(dataRequest)}</p>*/}
+            {/* )}*/}
 
             <div className="plans">
 
@@ -91,21 +87,26 @@ const Plans = () => {
                             onClick={() => handleStepClick(index)}
                         />
 
+
                     ))}
+                    <ProgressBar steps={2} currentStep={step}/>
+                </div>
+                <div className='plans__volver'>
+                    <button className='plans__volver__button' onClick={() => volver()}>
+
+                        <img src={imgAtras} className='plans__volver__button__icon'></img>
+                        <label>Volver</label>
+                    </button>
                 </div>
 
-                <button className='plans__button' onClick={() => volver()}>
-                    <i className="fa-solid fa-circle-chevron-left plans__button__icon"></i>
-                    {/*<i className='plans__button__icon'></i>*/}
-                    <label>Volver</label>
-                </button>
+                <div className='plans__prices'>
+                    {(option === 0) ? (<>
+                        <Option priceSelect={selectPrice}/>
+                    </>) : (option === 1) ? (<>
+                        <Summary datos={data}/>
+                    </>) : (<></>)}
+                </div>
 
-
-                {(option === 0) ? (<>
-                    <Option priceSelect={selectPrice}/>
-                </>) : (option === 1) ? (<>
-                    <Summary datos={data}/>
-                </>) : (<></>)}
             </div>
         </>
     );

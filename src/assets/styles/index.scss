@@ -21,24 +21,19 @@ Styles local
 body {
   margin: 0px;
   font-family: $primary-font;
-  //width: 1360px;
-  height: 704px;
-
-
   font-size: $font-size-4;
 
-  .invalid-feedback{
+  .invalid-feedback {
     color: red;
     font-size: $font-size-1;
     //margin: 0;
-}
-  .linea{
+  }
+
+  .linea {
     border: 1px solid #CCD1EE;
     width: 331.5px;
     height: 0px;
     gap: 0px;
-
-
   }
 
 

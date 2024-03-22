@@ -1,5 +1,5 @@
 // StepComponent.tsx
-import  {FC} from 'react';
+import {FC} from 'react';
 // import PropTypes from 'prop-types';
 import './Step.scss';
 
@@ -11,14 +11,16 @@ interface StepProps {
     onClick: () => void;
 }
 
-const Step: FC<StepProps> = ({ step, label, isActive, isCompleted, onClick }) => {
+const Step: FC<StepProps> = ({step, label, isActive, isCompleted, onClick}) => {
 
     return (
-        <div className={` step ${isActive ? 'active' : ''} ${isCompleted ? 'completed step-completed' : ''}`}
+        <div className={`step ${isActive ? 'active' : ''} ${isCompleted ? 'completed step-completed' : ''}`}
              onClick={onClick}>
 
             <div className="step__circle"><span>{step}</span></div>
             <div className="step__label">{label}</div>
+            {step === 1 ? <><span className='step__suspend'>... </span></> : <></>}
+
         </div>
     );
 };

@@ -1,7 +1,34 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
 
   &__main {
+    //flex: 1;
+    max-width: 2543px;
     width: 100%;
-    height: 100vh
+    height: 1399px;
+    top: -731px;
+    left: 3235px;
+    gap: 0px;
+    border-radius: 42px 0px 0px 0px;
+
+
+    @media (max-width: 792px) { // Ajuste para dispositivos móviles
+      max-width: 792px;
+      width: 100%;
+      height: 788px;
+      top: -1647px;
+      left: 4675px;
+      padding: 0px 0px 132px 0px;
+      gap: 0px;
+      border-radius: 38px 0px 0px 0px;
+
+    }
+
+
+
   }
+
 }

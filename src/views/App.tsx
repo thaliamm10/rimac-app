@@ -43,7 +43,7 @@ function App() {
                 <div className='container__main'>
                     <Header/>
                     <QueryClientProvider client={queryClient}>
-                        <Navigation/>
+                            <Navigation/>
                     </QueryClientProvider>
                 </div>
                 <Footer/>

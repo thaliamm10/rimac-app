@@ -20,13 +20,13 @@ const Summary: React.FC<SumaryProps> = ({datos}) => {
                             <i className={'fa fa-users'}></i> <span
                             className='summary__content__card--title-name'>{datos.name}</span>
                             <hr/>
-                            <h5>Responsable de pago</h5>
+                            <h3>Responsable de pago</h3>
                             <p>DNI:{datos.dni}</p>
                             <p>Celular:{datos.celular}</p>
-                            <br/>
-                            <h5>Plan elegido</h5>
+
+                            <h3>Plan elegido</h3>
                             <p>{datos.namePlan}</p>
-                            <p>Costo del Plan: {datos.price} al mes</p>
+                            <p>Costo del Plan: $ {datos.price} al mes</p>
                         </div>
                     </div>
 

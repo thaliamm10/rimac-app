@@ -1,18 +1,37 @@
 @import '../../_variables';
 .summary {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.20000000298023224px;
+  text-align: left;
+  gap: 8px;
+
+  //background-color: #9a1111;
 
   &__content {
-    width: 1360px;
-    height: 752px;
-    // Para centrar el contenido horizontalmente
-    margin: 0 auto;
-    gap: 0px;
-    border-radius: 42px 0px 0px 0px;
-    // Para hacer el contenido visible
-    display: block;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+
+    //margin: 0 auto;
+
+    //
+    //width: 1360px;
+    ////height: 752px;
+    //// Para centrar el contenido horizontalmente
+    //margin: 0 auto;
+    //gap: 0px;
+
+    padding: 24px 32px 24px 32px;
+    gap: 16px;
+    border-radius: 24px 0px 0px 0px;
+
+
+    //// Para hacer el contenido visible
+    //display: block;
 
     &__title {
       //styleName: Web/Title_03/D_Bold_40px;
@@ -30,14 +49,24 @@
     }
 
     &__card {
-      width: 928px;
-      //height: Hug (308px)px;
+      grid-column: span 1;
+      width: 336px;
+      //height: 308px;
       padding: 24px 32px 24px 32px;
       gap: 16px;
       border-radius: 24px 0px 0px 0px;
       box-shadow: 0px 1px 24px 0px #AEACF340;
       background: #FFFFFF;
-      margin: 0 auto; // Para centrar la tarjeta horizontalmente
+      margin: 0 auto;
+
+
+      @media (min-width: 792px) {
+        width: 928px;
+        padding: 24px 32px 24px 32px;
+        gap: 16px;
+        border-radius: 24px 0px 0px 0px;
+      }
+
     }
   }
 }

@@ -126,7 +126,7 @@ function QuoteRequest() {
                                 <img className='page-plans__content--section-right__frame1__cardh--img'
                                      src={imgLogo}/>
                             </div>
-                            <hr className='linea'/>
+                            {/*<hr className='linea'/>*/}
 
 
                             <p className='page-plans__content--section-right__frame1--text2'>Tú eliges cuánto pagar.

@@ -1,49 +1,43 @@
 @import '../_variables';
+
 .footer {
   background: #03050F;
-  min-height: 106px;
-  width: 100%;
   position: fixed;
   bottom: 0;
   left: 0;
-  z-index: 999;
-
+  width: 100%;
 
   &__content {
     display: grid;
     grid-template-rows: auto auto;
-    align-items: center;
-    justify-content: center;
-    top: -855px;
-    left: 2258px;
-    padding: 32px 24px 32px 24px;
-    gap: 24px;
+    padding: 32px 24px;
 
     @media (min-width: 792px) { // Ajuste para dispositivos de escritorio
       grid-template-columns: 1fr auto;
       gap: 20px;
       justify-content: space-between;
-      top: -879px;
-      left: 818px;
-      padding: 32px 120px 32px 120px;
-
+      padding: 32px 120px; /* Modifiqué el padding, eliminar top y left */
     }
   }
 
   &__logo {
-    width: 85.388px;
-    height: 42px;
-    flex-shrink: 0;
+    width: 100%;
+    height: 45px;
+    top: 2.17px;
+    left: 75.95px;
+    gap:24px;
+
     border: none;
     background-repeat: no-repeat;
-
-    @media (max-width: 792px) { // Ajuste para dispositivos mobil
-      width: 100%;
-      background-image: url('../../assets/media/logo/Logo-sm.svg');
-      background-position: center;
-    }
+    background-image: url('../../assets/media/logo/Logo-sm.svg');
+    background-position: center;
 
     @media (min-width: 793px) { // Ajuste para dispositivos de escritorio
+      width: 85.388px;
+      height: 42px;
+      flex-shrink: 0;
+      border: none;
+      background-repeat: no-repeat;
       background-image: url('../../assets/media/logo/Logo.svg');
     }
   }
@@ -55,26 +49,23 @@
     font-weight: 400;
     text-align: center;
 
-    @media (max-width: 792px) { // Ajuste para dispositivos mobil
+    @media (max-width: 792px) { // Ajuste para dispositivos móviles
       font-size: 12px;
       line-height: 20px;
-      letter-spacing: 0.10000000149011612px;
-
+      letter-spacing: 0.1px; /* Modifiqué el valor */
     }
   }
 
   &__separator {
     display: none;
 
-    @media (max-width: 792px) { // Ajuste para dispositivos mobil
+    @media (max-width: 792px) { // Ajuste para dispositivos móviles
       display: block;
-      width: 336px;
+      width: 100%; /* Cambié el valor a 100% */
       height: 1px;
       background-color: #2B304E;
       border: none;
-      margin: 10px 10px;
-      //border: 1px solid #2B304E
+      margin: 10px 0; /* Eliminé el valor de margin-right */
     }
   }
 }
-

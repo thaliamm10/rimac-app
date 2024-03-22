@@ -1,0 +1,58 @@
+@import '../../../assets/styles/variables';
+.progressr {
+  display: none;
+  @media (max-width: 792px) {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+
+    //width: Fill (384px)px;
+    //height: Hug (56px)px;
+    //padding: 16px 24px 16px 24px;
+    //gap: 16px;
+    //opacity: 0px;
+
+  }
+
+  &__icon {
+    background-image: url('../../../assets/media/images/img.png');
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 24px;
+    gap: 0px;
+    background-position: center;
+    cursor: pointer;
+
+  }
+
+  &__label {
+    font-family: $secondary-font;
+    font-size: 10px;
+    font-weight: 900;
+    line-height: 16px;
+    letter-spacing: 0.800000011920929px;
+    text-align: left;
+  }
+
+  &__progress {
+    position: relative;
+    width: 212px;
+    height: 6px;
+    border-radius: 20px;
+    background: #D7DBF5;
+
+
+
+    &__fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: #4F4FFF;
+      border-radius: 20px;
+      transition: width 0.3s ease;
+    }
+  }
+}
+

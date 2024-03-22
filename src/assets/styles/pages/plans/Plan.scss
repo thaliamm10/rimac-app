@@ -1,18 +1,42 @@
+@import '../../variables';
+
 .planDetail {
+
+
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); // En dispositivos móviles, una columna
+  grid-gap: 20px; // Espacio entre las filas
+  //opacity: 0px;
+  //margin: 0 auto;
+
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(12, 1fr);
+    display: flex;
+    justify-content: center;
+
+  }
+
   //display: flex;
-  //justify-content: center;
-  //align-items: center;
+  justify-content: center;
+  align-items: center;
   //width: Hug (928px)px;
   //height: Hug (687px)px;
-  display: flex;
-  justify-content: center;
+  //display: flex;
+  //justify-content: center;
   gap: 32px;
   padding: 32px;
-  //opacity: 0px;
-
 
   &__card {
-    width: 250px;
+
+    background: #9a1111;
+    //display: grid;
+    //grid-template-columns: repeat(1, 1fr); // Por defecto, una columna en dispositivos móviles
+
+
+
+
+
     height: 687px;
 
     padding: 68px 32px 48px 32px;
@@ -24,8 +48,15 @@
     box-shadow: 0px 1px 32px 0px #AEACF359;
     background: #FFFFFF;
 
-    &__header {
+    @media (min-width: 768px) {
+      width: 250px;
+      //display: grid;
+      //background: #4f4fff;
+      grid-column: span 4; // En dispositivos de escritorio, 4 columnas
+    }
 
+    &__header {
+      grid-column: span 12;
 
       &__img {
         display: flex;
@@ -38,7 +69,7 @@
           gap: 0px;
 
           //styleName: Web/Title/Headline11_Black;
-          font-family: Lato;
+          font-family: $secondary-font;
           font-size: 24px;
           font-weight: 900;
           line-height: 32px;
@@ -59,7 +90,7 @@
 
           background: #7DF0BA;
           //styleName: Web/Special/Special2_Black;
-          font-family: 'Lato';
+          font-family: '$secondary-font';
           font-size: 12px;
           font-weight: 900;
           line-height: 16px;
@@ -73,7 +104,7 @@
 
       &--title {
         //styleName: Web/Title/Headline21_Upper_Black;
-        font-family: 'Lato';
+        font-family: '$secondary-font';
         font-size: 12px;
         font-weight: 900;
         line-height: 16px;
@@ -89,7 +120,7 @@
 
       &--title-before {
         color: #7981B2;
-        font-family: Lato;
+        font-family: $secondary-font;
         font-size: 14px;
         font-weight: 400;
         line-height: 20px;
@@ -100,7 +131,7 @@
 
       &--subtitle {
         //styleName: Web/Title/Headline13_Black;
-        font-family: Lato;
+        font-family: $secondary-font;
         font-size: 20px;
         font-weight: 900;
         line-height: 28px;
@@ -113,6 +144,7 @@
     }
 
     &__hr {
+      grid-column: span 12;
       width: 224px;
       height: 0px;
       gap: 0px;
@@ -124,6 +156,7 @@
     }
 
     &__body {
+      grid-column: span 12;
 
       ul {
 
@@ -135,7 +168,7 @@
       &--li {
         //styleName: Web/Paragraph/Paragraph5_Bold;
         //styleName: Web/Paragraph/Paragraph5_Bold;
-        font-family: Lato;
+        font-family: $secondary-font;;
         font-size: 16px;
         font-weight: 700;
         line-height: 28px;
@@ -156,7 +189,7 @@
         border: none;
         cursor: pointer;
 
-        font-family: 'Lato';
+        font-family: $secondary-font;;
         font-size: 18px;
         font-weight: 700;
         line-height: 20px;

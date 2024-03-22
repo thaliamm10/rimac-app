@@ -5,6 +5,7 @@
 
 const Footer = () => {
     return (
+        <>
         <footer className='footer'>
             <div className="footer__content">
                 <div  className="footer__logo"/>
@@ -12,6 +13,7 @@ const Footer = () => {
                 <p className="footer__text" >© 2023 RIMAC Seguros y Reaseguros.</p>
             </div>
         </footer>
+        </>
     );
 };
 
