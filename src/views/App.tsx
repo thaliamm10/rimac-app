@@ -37,7 +37,7 @@ const queryClient = new QueryClient()
 
 function App() {
     return (
-        // <Provider store={store}>
+
         <>
             <div className="container">
                 <div className='container__main'>
@@ -49,7 +49,7 @@ function App() {
                 <Footer/>
             </div>
         </>
-        // </Provider>
+
     );
 }
 
