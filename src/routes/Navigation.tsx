@@ -1,24 +1,22 @@
-import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
-import {lazy} from "react";
+import { lazy, Suspense } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 const Plans = lazy(() => import("../views/pages/plans/Plans"));
 const QuoteRequest = lazy(() => import("../views/pages/quote-request/QuoteRequest"));
-const Error = lazy(() => import("../views/pages/error/Error"));
-
+const ErrorPage = lazy(() => import("../views/pages/error/Error"));
 
 const Navigation = () => {
     return (
-        <>
-            <BrowserRouter>
+        <BrowserRouter>
+            <Suspense fallback={<div>Cargando...</div>}>
                 <Routes>
-                        <Route path="/" element={<QuoteRequest/>}></Route>
-                        <Route path="/plans" element={<Plans/>}></Route>
-                        <Route path="error" element={<Error/>}></Route>
-                        <Route path="/*" element={<Navigate to="/" replace/>}></Route>
+                    <Route path="/" element={<QuoteRequest />} />
+                    <Route path="/plans" element={<Plans />} />
+                    <Route path="/error" element={<ErrorPage />} />
+                    <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
-            </BrowserRouter>
-
-        </>
+            </Suspense>
+        </BrowserRouter>
     );
 };
 

@@ -2,6 +2,7 @@ import {StrictMode} from 'react';
 import {createRoot} from 'react-dom/client';
 import App from "./views/App.tsx";
 
+
 const rootElement = document.getElementById("root");
 if (rootElement instanceof HTMLElement) {
     const root = createRoot(rootElement);

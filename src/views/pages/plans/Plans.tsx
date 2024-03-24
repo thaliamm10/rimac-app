@@ -1,6 +1,6 @@
 import {useQuery, useQueryClient} from '@tanstack/react-query';
 import Step from "../../../common/components/step/Step.tsx";
-import {startTransition, useState} from "react";
+import { useState} from "react";
 import Option from "./childs/option/Option.tsx";
 // @ts-ignore
 import {
@@ -19,6 +19,7 @@ const Plans = () => {
     const queryClient = useQueryClient();
     // Obtener los datos cacheados
     const dataRequest: any = queryClient.getQueryData(['dataRequest']);
+
     const [data, setData] = useState({})
     const [steps, setSteps] = useState([
         {step: 1, label: 'Planes y coberturas', isActive: true, isCompleted: false},
@@ -49,7 +50,11 @@ const Plans = () => {
     const selectPrice = (val: any) => {
         setStep(2)
         setOption(1)
-        console.log(dataRequest)
+        const arr = steps.map(i => ({
+            ...i,
+            isActive: !i.isActive
+        }))
+        setSteps(arr)
 
         // @ts-ignore
         setData({
@@ -62,22 +67,20 @@ const Plans = () => {
     }
 
     const volver = () => {
-        startTransition(() => {
             navigate('/');
-        })
     }
 
     return (
         <>
-            {/* /!* Documento: *!/*/}
-            {/*{dataRequest && (*/}
-            {/*     <p>Los datos cacheados son: {JSON.stringify(dataRequest)}</p>*/}
-            {/* )}*/}
-
             <div className="plans">
 
                 <div className='plans__step-container'>
-                    {steps.map((step: { step: number; label: string; isActive: boolean; isCompleted: boolean; }, index: number) => (
+                    {steps.map((step: {
+                        step: number;
+                        label: string;
+                        isActive: boolean;
+                        isCompleted: boolean;
+                    }, index: number) => (
                         <Step
                             key={index}
                             step={step.step}

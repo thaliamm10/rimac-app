@@ -3,6 +3,8 @@ import Footer from "./layout/Footer.tsx";
 import '../assets/styles/index.scss'
 import Navigation from "../routes/Navigation.tsx";
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+
 // import {QueryClient, QueryClientProvider, QueryCache, MutationCache} from "react-query";
 // import {APP_ERROR_MESSAGE} from "../common/constants/app.constant.ts";
 // import {toast} from 'react-toast'
@@ -33,9 +35,10 @@ import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 //         },
 //     }),
 // });
-const queryClient = new QueryClient()
+
 
 function App() {
+    const queryClient = new QueryClient()
     return (
 
         <>
@@ -44,6 +47,7 @@ function App() {
                     <Header/>
                     <QueryClientProvider client={queryClient}>
                             <Navigation/>
+                        <ReactQueryDevtools initialIsOpen={false} />
                     </QueryClientProvider>
                 </div>
                 <Footer/>

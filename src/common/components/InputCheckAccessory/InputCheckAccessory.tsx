@@ -10,6 +10,7 @@ interface InputCheckAccessoryProps {
     value: any;
     className: any;
     label: string
+    checked:any
 }
 
 const InputCheckAccessory: FC<InputCheckAccessoryProps> = ({
@@ -18,7 +19,7 @@ const InputCheckAccessory: FC<InputCheckAccessoryProps> = ({
                                                                onBlur,
                                                                value,
                                                                className,
-
+                                                               checked,
                                                                label
                                                            }) => {
 
@@ -32,6 +33,7 @@ const InputCheckAccessory: FC<InputCheckAccessoryProps> = ({
                     onChange={onChange}
                     onBlur={onBlur}
                     value={value}
+                    checked={checked}
                     className={className}/>
                 <span className='check-icon'></span>
                 <span>{label}</span>

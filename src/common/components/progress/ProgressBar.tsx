@@ -1,10 +1,8 @@
 import './Progressr.scss'
 // @ts-ignore
 import img from '../../../assets/media/images/Icon-button.png'
-import {FC, startTransition} from "react";
+import {FC} from "react";
 import {useNavigate} from "react-router-dom";
-
-
 
 
 interface ProgressBarProps {
@@ -17,9 +15,7 @@ const ProgressBar: FC<ProgressBarProps> = ({steps, currentStep}) => {
     let progressWidth: string;
 
     const volver = () => {
-        startTransition(() => {
-            navigate('/');
-        })
+        navigate('/');
     }
 
     if (currentStep === 1) {

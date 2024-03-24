@@ -11,11 +11,8 @@ import {
 import CustomInputAccessory from "../../../common/components/CustomInputAccessory/CustomInputAccessory.tsx";
 import InputAccessory from "../../../common/components/InputAccessory/InputAccessory.tsx";
 import InputCheckAccessory from "../../../common/components/InputCheckAccessory/InputCheckAccessory.tsx";
-import {useQuery} from "@tanstack/react-query";
+import {useQueryClient} from "@tanstack/react-query";
 import {useNavigate} from "react-router-dom";
-import {startTransition} from "react";
-
-
 // Inicialización de campos
 const initialValues = {
     tipoDocumento: 'DNI',
@@ -28,7 +25,8 @@ const initialValues = {
 
 function QuoteRequest() {
     const navigate = useNavigate();
-    // const navigate = useNavigate();
+    const queryClient = useQueryClient();
+    // const dataRequest: any = queryClient.getQueryData(['dataRequest']);
     /**
      * Validación de atributos
      */
@@ -53,43 +51,9 @@ function QuoteRequest() {
 
     const getValidationClass = (touched: boolean | undefined, error: string | undefined) => (touched && error ? 'is-invalid' : '');
 
-    // const fetchRegister = (): Promise<any> =>
-    //     axios.post('/register', formik.values).then((response) => response.data);
-    const getData = async () => {
-        // Simula una respuesta con datos simulados
-        return new Promise((resolve) => {
-            // setTimeout(() => {
-                const data = {
-                    ...formik.values
-                };
-                resolve(data);
-
-            // }, 1000);
-        });
-    };
-    const {data, isLoading} = useQuery({
-        queryKey: ['dataRequest'],
-        queryFn: getData,
-        retry: 0,
-        refetchOnWindowFocus: false,
-
-    });
-
-
-    // console.log('Data:', data);
-    // console.log('Loading:', isLoading);
-
     const handleSubmit = () => {
-        console.log('entraaa')
-        if (!isLoading) {
-            console.log(data)
-        }
-
-        startTransition(() => {
-            if (!isLoading) {
-                navigate('/plans');
-            }
-        })
+        queryClient.setQueryData(['dataRequest'], formik.values);
+        navigate('/plans');
     };
 
 
@@ -102,7 +66,6 @@ function QuoteRequest() {
 
     return (
         <>
-
             <div className='page-plans'>
                 <div className='page-plans__background'>
                     <div className='page-plans__background--image-left'></div>
@@ -121,7 +84,8 @@ function QuoteRequest() {
                                 </label>
                                 </span>
                             <div className='page-plans__content--section-right__frame1__cardh'>
-                                <p className='page-plans__content--section-right__frame1__cardh--text1'>Creado para ti y tu
+                                <p className='page-plans__content--section-right__frame1__cardh--text1'>Creado para ti y
+                                    tu
                                     familia</p>
                                 <img className='page-plans__content--section-right__frame1__cardh--img'
                                      src={imgLogo}/>
@@ -175,6 +139,7 @@ function QuoteRequest() {
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
                                         value={formik.values.terminos1}
+                                        checked={formik.values.terminos1}
                                         className={getValidationClass(formik.touched.terminos1, formik.errors.terminos1)}
                                         label='Acepto la Política de Privacidad'
                                     />
@@ -189,6 +154,7 @@ function QuoteRequest() {
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
                                         value={formik.values.terminos2}
+                                        checked={formik.values.terminos2}
                                         className={getValidationClass(formik.touched.terminos2, formik.errors.terminos2)}
                                         label='Acepto la Política Comunicaciones Comerciales'
                                     />
@@ -219,7 +185,6 @@ function QuoteRequest() {
 
                 </div>
             </div>
-
         </>
     )
         ;
