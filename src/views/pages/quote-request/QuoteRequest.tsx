@@ -23,6 +23,9 @@ const initialValues = {
 
 };
 
+// @ts-ignore
+import imgLeft from '../../../assets/media/images/blur-asset.svg'
+
 function QuoteRequest() {
     const navigate = useNavigate();
     const queryClient = useQueryClient();
@@ -68,7 +71,8 @@ function QuoteRequest() {
         <>
             <div className='page-plans'>
                 <div className='page-plans__background'>
-                    <div className='page-plans__background--image-left'></div>
+                    <img src={imgLeft} className='page-plans__background--image-left'/>
+                    {/*<div className='page-plans__background--image-left'></div>*/}
                     <div className='page-plans__background--image-right'></div>
                 </div>
                 <div className='page-plans__content'>

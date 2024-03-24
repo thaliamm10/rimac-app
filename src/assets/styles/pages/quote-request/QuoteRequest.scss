@@ -4,12 +4,10 @@ $position: fixed;
 $desktopWidth: 432px;
 $desktopHeight: 100vh;
 $space-between: space-between;
+$footerHeight: 106px;
 
 .page-plans {
   &__background {
-    //width: 100%;
-    //height: 100vh;
-    //
     @media (min-width: 792px) {
       // Ajuste para dispositivos de escritorio
       display: flex;
@@ -17,37 +15,44 @@ $space-between: space-between;
     }
 
     &--image-left {
-      background-image: url('../../assets/media/images/blur-asset-purple.png');
-      background-size: cover;
-      background-position: left;
-      position: $position;
-      width: $desktopWidth;
-      //max-height: $desktopHeight;
-      height: 100%;
+
+
+      position: fixed;
+
+      height: $desktopHeight;
       bottom: 0;
       left: 0;
 
+      @media (min-width: 793px) {
+        z-index: 1;
+      }
+
       @media (max-width: 792px) {
         // Ajuste para dispositivos móviles
-        background-image: url('../../assets/media/images/blur-asset2.png');
-        background-size: cover;
-        background-position: bottom left;
+        //background-image: url('../../assets/media/images/blur-asset2.png');
         angle: -180 deg;
         width: 256px;
         height: 640px;
+        top: 488px;
       }
     }
 
     &--image-right {
       background-image: url('../../assets/media/images/blur-asset.png');
       background-size: cover;
-      background-position: right;
+      background-position: right 50%;
       position: $position;
       width: $desktopWidth;
       height: $desktopHeight;
+      //height: calc(100% - $footerHeight);
       angle: 180deg;
       right: 0;
       top: 0;
+      bottom: 0;
+
+      @media (min-width: 793px) {
+        z-index: 1;
+      }
 
 
       @media (max-width: 792px) {
@@ -62,19 +67,23 @@ $space-between: space-between;
   }
 
   &__content {
+    position: relative;
+    //position: $position;
     //background: #ecd79e;
     //height: 100vh;
-    height: 100%;
+    //height: 100%;
+    //height: calc(100% - $footerHeight);
     //position: absolute;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 3;
 
 
     @media (max-width: 792px) { // Ajuste para dispositivos mobil
       max-width: 384px;
       width: 100%;
-      width: 384px;
+      //width: 384px;
       max-height: 723px;
       height: 100%;
       padding: 0px 24px 64px 24px;
@@ -83,9 +92,14 @@ $space-between: space-between;
 
     &--section-left {
 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
       padding: 32px 0px 48px 120px;
       gap: 10px;
-      width: 600px;
+      min-width: 450px;
+      width: 100%;
       @media (max-width: 792px) { // Ajuste para dispositivos mobil
         display: none;
 
@@ -96,7 +110,10 @@ $space-between: space-between;
         position: relative;
         max-width: 100%;
         max-height: 100%;
+        min-width: 50%;
+        min-height: 50%;
         width: auto;
+        height: auto;
         //height: auto;
         gap: 0px;
 
@@ -105,7 +122,13 @@ $space-between: space-between;
     }
 
     &--section-right {
-      width: 696px;
+
+
+
+      //background: #4f4fff;
+      min-width: 696px;
+      width: 100%;
+
       padding: 32px 216px 80px 128px;
 
       @media (max-width: 792px) {
@@ -118,6 +141,7 @@ $space-between: space-between;
       //gap: 24px;
 
       &__frame1 {
+
         width: 352px;
         //height: 168px;
         gap: 16px;
